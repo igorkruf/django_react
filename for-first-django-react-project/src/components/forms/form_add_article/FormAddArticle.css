@@ -1,0 +1,9 @@
+.content_incolumn{
+    display:flex;
+    flex-direction:column;
+}
+
+.form-elem__textarea{
+   
+    height: 100px ;
+}

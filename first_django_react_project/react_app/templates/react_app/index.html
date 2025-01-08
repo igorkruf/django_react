@@ -1,0 +1,11 @@
+{% extends "main_app/index.html" %}
+{% load static %}
+
+{% block styles_react_app %}
+<link rel="stylesheet" type="text/css" href= "{% static 'react_app/assets/react_app.css' %}"/>
+{% endblock styles_react_app %}
+
+{% block content_react %}
+<div id="root"></div>
+<script src="{% static 'react_app/assets/react_app.js' %}" type="module"></script>
+{% endblock content_react %}

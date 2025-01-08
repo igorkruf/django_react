@@ -1,0 +1,12 @@
+.list-article{
+    border:1px solid red;
+    list-style-type: none;
+    padding:0;
+}
+
+.list-article__item{
+    padding: 12px;
+    border:1px solid green;
+    display:flex;
+    justify-content: space-between;
+}
