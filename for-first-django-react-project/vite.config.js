@@ -6,32 +6,32 @@ export default defineConfig(({command, mode })=>{
   if (command === 'serve') {
     return {
       plugins: [react()],
-      server:{
-        proxy:{
-          '/api':{
-            target:'http://localhost:8000',
+      // server:{
+      //   proxy:{
+      //     '/api':{
+      //       target:'http://localhost:8000',
             
             
             
-          },
+      //     },
           
-        },
-      },
+      //   },
+      // },
     }
   } else {
     return {
       base:'/static/',
-      server:{
-        proxy:{
-          '/api':{
-            target:'http://localhost:8000',
+      // server:{
+      //   proxy:{
+      //     '/api':{
+      //       target:'http://localhost:8000',
             
             
            
-          },
+      //     },
          
-        },
-      },
+      //   },
+      // },
       plugins: [react()],
       build:{
         

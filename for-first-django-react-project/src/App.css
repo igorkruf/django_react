@@ -1,2 +1,27 @@
+.block__wrapper{
+    display:flex;
+    row-gap: 12px;
+    flex-direction:column;
+}
+
+.block{
+    display:flex;
+    justify-content: space-between;
+    border:10px solid red;
+    height:300px;
+    font-size:24px;
+    background-color: blueviolet;
+}
+
+.block__menu{
+    display:flex;
+    row-gap: 12px;
+}
+
+.menu__item{
+    border:1px solid red;
+    padding:6px;
+    cursor:pointer;
+}
 
 

@@ -37,7 +37,7 @@ let validate = values => {
 };
 
 function FormAddArticle() {
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
 
   useEffect(()=>{
 
@@ -63,7 +63,7 @@ function FormAddArticle() {
     let result = await respose.json();
     if (result.status==true){
       formik.resetForm();
-      navigate("/");    
+      // navigate("/");    
     } else {
       console.log('Ошибка при добавлении Статьи в базу')
     }
@@ -84,6 +84,7 @@ function FormAddArticle() {
     {/* <form onSubmit={(e)=>{e.preventDefault(); formik.handleSubmit(e)}} > */}
     <form className='content_incolumn' onSubmit={formik.handleSubmit}>
       <label htmlFor="title">Заголовок статьи</label>
+      <input type="date"/>
       <input
          id="title"
          name="title"

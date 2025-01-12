@@ -1,8 +1,12 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useRef, useContext } from 'react';
 // import FormAddArticle from './components/forms/form_add_article/formAddArticle';
 import ListArticleItem from './components/list_article_item/list_article_item';
 import { getCookie } from './functions';
+import { createPortal } from 'react-dom';
+import ModalBasis from './components/modals/basis/basis';
+import FormAddArticle from './components/forms/form_add_article/formAddArticle';
 
+import MainPage from './components/page/main_page/main_page';
 import './App.css'
 import { Outlet, useLocation } from "react-router";
 // import { BrowserRouter, Routes, Route } from "react-router";
@@ -16,70 +20,63 @@ import { Outlet, useLocation } from "react-router";
 let csrftoken = getCookie('csrftoken');
 
 function App() {
+ 
+ 
+  let elemBody =document.querySelector('body');
   
- let [listArticle, setListArticle] = useState([]); 
- let [dataEditArticle, setDataEditArticle] = useState();
- const location = useLocation();
- async function editArticle(id){
-  console.log(`Редактируем статью с id: ${id}`);
-  let response = await fetch(`/api/article/edit/${id}/`);
-  let result = await response.json();
-  setDataEditArticle(result);
-}
-
- async function delArticle(id){
-  console.log(`Удаляем статью с id: ${id}`);
-  let response = await fetch(`/api/article/del/${id}/`, {
-    method:"DELETE",
-    headers:{
-      'X-CSRFToken': csrftoken
-    }
-  });
-  let result = await response.json();
-  console.log(result);
-  if (result['post']){
-    fetchData();
-  } else {
-    console.log('Ошибка при удалении статьи');
-  }
+  let [openModal, setOpenModal] = useState(false);
+  let contentModal = useRef();
+  let elem = useRef(elemBody);
+  let listBlocks =[
+    { "id":1, "name":"Блок1", "content":"Content блока 1"},
+    { "id":2, "name":"Блок2", "content":"Content блока 2"},
+    { "id":3, "name":"Блок3", "content":"Content блока 3"},
+    { "id":4, "name":"Блок4", "content":"Content блока 4"},
+  ];
   
- }
+  let nodeListModalBasis =document.querySelectorAll('.modal__basis');
+  console.log(nodeListModalBasis);
+  let parentModalBasis = nodeListModalBasis[nodeListModalBasis.length - 1] ? nodeListModalBasis[nodeListModalBasis.length - 1] : elem.current;
+  console.log(parentModalBasis);
 
-  let fetchData = async ()=>{
-    let response = await fetch('/api');
-    let result = await response.json();
-    console.log('Результат:');
-    console.log(result); 
-    setListArticle(result);
-
+  let openModalEdit = ()=>{
+    console.log('Изменяем блок');
+    contentModal.current = <BlockEditPage/>
+    setOpenModal(true);
+    elem.current.classList.add('modal-open');
+    
   };
 
-  useEffect(()=>{
-    console.log('Рендер App.js')
-     fetchData();
-  }, [location]);
-
- 
-  let itogListArticle = listArticle.map((article, i)=><ListArticleItem key={article.key} article={article} editArticle={editArticle} delArticle={delArticle}/>)
-
+  let closeModal = ()=>{
+    setOpenModal(false);
+    elem.current.classList.remove('modal-open');
+  }
   
-  return (
-    <>
-   
-                    
-                    
+  
+  
     
-    <ul className='list-article'>  
-      
+useEffect(()=>{
+  // let nodeListModalBasis =document.querySelectorAll('.modal__basis');
+  // let parentModalBasis = nodeListModalBasis[nodeListModalBasis.length - 2] ? nodeListModalBasis[nodeListModalBasis.length - 2] : elem.current;
+  // console.log(parentModalBasis? parentModalBasis : elem.current);
+
+  // console.log(document.querySelectorAll('.modal__basis'));
+
+
+}, ) 
+
+  return <>
+  <div className='wrapper'>
     
-      {itogListArticle}
-    </ul>
-   <Outlet/>
+    <MainPage listBlocks={listBlocks}/>
+    <FormAddArticle/>
+  </div> 
+  
     
     
     </>
     
-    )
+    
 };
 
 export default App

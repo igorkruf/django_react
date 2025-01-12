@@ -1,0 +1,6 @@
+.modal__content{
+    /* z-index: 1001; */
+    max-height: 90%;
+    max-width: 90%;
+    background-color: #fff;
+}
