@@ -1,8 +1,9 @@
 import { StrictMode } from 'react'
 import App from './App.jsx';
-import { MyFirstContext } from './contexts.js';
-// import {RouterProvider } from "react-router";
-// import {router} from "./router/router.jsx"
+// import { MyFirstContext } from './contexts.js';
+// import {RouterProvider, HashRouter } from "react-router";
+import { RouterProvider } from 'react-router-dom';
+import {router} from "./router/router.jsx"
 import './index.css'
 import {createRoot } from 'react-dom/client';
 
@@ -12,7 +13,8 @@ import {createRoot } from 'react-dom/client';
 
 createRoot(document.getElementById('root')).render(
 
-<App />
+<RouterProvider router={router} />
+
 
  
 )

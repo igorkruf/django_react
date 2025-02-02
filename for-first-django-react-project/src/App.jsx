@@ -8,7 +8,8 @@ import FormAddArticle from './components/forms/form_add_article/formAddArticle';
 
 import MainPage from './components/page/main_page/main_page';
 import './App.css'
-import { Outlet, useLocation } from "react-router";
+import { Outlet, useLocation, NavLink } from "react-router";
+
 // import { BrowserRouter, Routes, Route } from "react-router";
 
 // Для получения значения куки с конкретным именем (аргумент: name )
@@ -28,7 +29,7 @@ function App() {
   let contentModal = useRef();
   let elem = useRef(elemBody);
   let listBlocks =[
-    { "id":1, "name":"Блок1", "content":"Content блока 1"},
+    { "id":1, "name":"Блок1", "content":"Content блока 2221"},
     { "id":2, "name":"Блок2", "content":"Content блока 2"},
     { "id":3, "name":"Блок3", "content":"Content блока 3"},
     { "id":4, "name":"Блок4", "content":"Content блока 4"},
@@ -67,9 +68,12 @@ useEffect(()=>{
 
   return <>
   <div className='wrapper'>
-    
-    <MainPage listBlocks={listBlocks}/>
-    <FormAddArticle/>
+  <a href={`#/api`}>jhgjhgjgjhg</a>
+  <a href={`#/raduga`}>радуга</a>
+  <a href ={`#books/`}>Книги</a>
+    {/* <MainPage listBlocks={listBlocks}/> */}
+    {/* <FormAddArticle/> */}
+    <Outlet/>
   </div> 
   
     
