@@ -68,3 +68,5 @@ export default function useIntersectionObserverOpacity(selector){
   
 }
 ```
+https://blog.openreplay.com/how-to-add-animations-with-react-transition-group/      CSS transition group
+
