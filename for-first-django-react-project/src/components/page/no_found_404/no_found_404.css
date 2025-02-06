@@ -1,0 +1,34 @@
+
+h1{
+    color:red !important;
+    border:1px solid red;
+    opacity:0;
+   
+  }
+.sss{
+    opacity:1;
+}  
+
+  .fade-enter {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  .fade-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 300ms, transform 300ms;
+  }
+  
+  .fade-exit {
+    opacity: 1;
+  }
+  
+  .fade-exit-active {
+    opacity: 0;
+    transition: opacity 300ms;
+  }
+
+
+
+  

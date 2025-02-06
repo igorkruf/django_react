@@ -3,6 +3,7 @@ import { createHashRouter } from "react-router-dom"
 import App from "../App";
 import Books from "../components/page/books/books.jsx";
 import Book from "../components/page/books/book/book.jsx";
+import NoFound404 from "../components/page/no_found_404/no_found_404.jsx";
 
 // export let router = createBrowserRouter([
 //     {
@@ -38,7 +39,7 @@ export let router = createHashRouter([
               // },
               {
                   path: "api/",
-                  element: <NotFoundPage/>,
+                  element: <NoFound404/>,
             },
             {
               path: "books/",
@@ -56,10 +57,10 @@ export let router = createHashRouter([
         },
         {
           path:"*",
-          element:<NotFoundPage/>
+          element:<NoFound404/>
         }
   ]);
 
-function NotFoundPage(){
-    return <h1>Страница не найдена</h1>
-}
+// function NotFoundPage(){
+//     return <h1>Страница не найдена</h1>
+// }
